@@ -107,7 +107,7 @@ public class HelloController {
     }
 	
 	/**
-	 * 设置本类的异常处理
+	 * 下面三段是设置本类的异常处理，被捕获的异常交给IllegalArgumentException，没被捕获的交给全局处理类处理
 	 */
 	@RequestMapping(value = "/testException")
     public void testException(){
@@ -119,10 +119,8 @@ public class HelloController {
         int i = 10 /0;
     }
 	
-	@ExceptionHandler(value=IllegalArgumentException.class)
+	/*@ExceptionHandler(value=IllegalArgumentException.class)
 	public String myError(){
 		return "error";
-	}
-	
-
+	}*/
 }
