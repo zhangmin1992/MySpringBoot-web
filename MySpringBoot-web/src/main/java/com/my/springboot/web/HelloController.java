@@ -8,6 +8,8 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +17,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.arjuna.ats.internal.arjuna.objectstore.jdbc.drivers.ibm_driver;
-
 @Controller
 public class HelloController {
 
+	/**
+	 * springboot提供的地址访问次数
+	 */
+	@Autowired
+	private CounterService counterService;
+	
+	
 	/**
 	 * 测试main启动后jsp页面可以访问
 	 * @param name
@@ -42,6 +49,7 @@ public class HelloController {
 	@RequestMapping(value="/test")
 	@ResponseBody
 	public String test() {
+		//counterService.increment("my.test");
 		return "index";
 	}
 	
@@ -123,4 +131,6 @@ public class HelloController {
 	public String myError(){
 		return "error";
 	}*/
+	
+	
 }
