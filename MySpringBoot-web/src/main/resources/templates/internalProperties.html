@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+
+<form th:action="@{/upload}" method="post">
+
+	<!-- 中英文切换  这里的连接是连接到方法mappging上,注意参数不用&用转移字符-->
+	<a href="/testInteralProperties?name=222&amp;p=zh_CN">中文</a>
+	<a href="/testInteralProperties?name=222&amp;p=en_US">英文</a>
+	<!-- #是从资源文件取值，$是从controller中取值 -->
+	<div th:text="#{hello}" ></div>
+	
+	<input type="submit" value="Subscribe me!" th:attr="value=#{tijiao}"/>
+	
+	<input type="text" name="userName" value="James Carrot" th:value="#{hello}" />
+	
+	<input type="checkbox" th:value="#{hello}"/>
+	
+	<!-- button还是可以使用的 -->	
+	<button type="submit" th:text="#{tijiao}">rr</button>
+	
+	<!-- 保留2位小数 -->
+	<div th:text="${num}"></div>
+	<div th:text="${#numbers.formatDecimal(num, 1, 2)}">25</div>
+	
+	<!-- 日期格式化 -->
+	<div th:text="${birthday}"></div>
+	<div th:text="${#dates.format(birthday, 'yyyy-MM-dd')}">2014-12-01</div>
+	<div th:text="#{birthday}"></div>
+	<!-- 资源文件取值后格式化未通过 -->
+	<!-- <div th:text="#dates.format(birthday, 'yyyy-MM-dd')">2014-12-01</div> -->
+	
+	<!-- 字符串拼接 -->
+	<div th:text="${'广东省'+address}">越秀区</div>
+	
+	<!-- 对象是否为空 -->
+	 <div th:if="${#maps.isEmpty(mymap)}">
+        <p>#maps:判断对象是否为空</p>
+    </div>
+    
+    <div>
+        #lists:<span th:text="${#lists.size(mylist)}"></span>
+    </div>
+    
+    <!-- 此参数必须经过地址栏传到 -->
+    #httpServletRequest: <span th:text="${#httpServletRequest.getParameter('name')}"></span>
+</form>
+	
+</body>
+</html>

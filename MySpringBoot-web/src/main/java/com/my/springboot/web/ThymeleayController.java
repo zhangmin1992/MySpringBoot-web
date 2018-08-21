@@ -15,7 +15,7 @@ import com.my.springboot.web.shiro.UserEntity;
 public class ThymeleayController {
 
 	//查出用户数据，在页面展示
-    @RequestMapping("/success")
+    @RequestMapping("/testThymeleay")
     public String success(Map<String,Object> map){
         map.put("hello","<h1>你好</h1>");
         map.put("arrays",Arrays.asList("zhangsan","lisi","wangwu"));

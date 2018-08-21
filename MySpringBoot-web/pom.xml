@@ -23,17 +23,26 @@
     </properties>
     
   <dependencies>
+  
   	    <!-- 这个springboot依赖 -->
   		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
+		
      	<!-- web依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         
+        <!-- 热部署，为了修改jsp/html页面后不需要重启 -->
+        <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-devtools</artifactId>
+	        <optional>true</optional>
+		</dependency>
+		
         <!-- 安全检查要用到的,同时用于spring-config-client的动态刷新 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
