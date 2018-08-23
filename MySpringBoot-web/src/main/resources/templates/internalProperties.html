@@ -31,6 +31,11 @@
 	<div th:text="${birthday}"></div>
 	<div th:text="${#dates.format(birthday, 'yyyy-MM-dd')}">2014-12-01</div>
 	<div th:text="#{birthday}"></div>
+	
+	<!-- 显示年月日单独 -->
+	<div th:text="${#dates.day(birthday)}"></div>号
+	<div th:text="${#dates.month(birthday)}"></div>月
+	
 	<!-- 资源文件取值后格式化未通过 -->
 	<!-- <div th:text="#dates.format(birthday, 'yyyy-MM-dd')">2014-12-01</div> -->
 	
@@ -38,7 +43,7 @@
 	<div th:text="${'广东省'+address}">越秀区</div>
 	
 	<!-- 对象是否为空 -->
-	 <div th:if="${#maps.isEmpty(mymap)}">
+	<div th:if="${#maps.isEmpty(mymap)}">
         <p>#maps:判断对象是否为空</p>
     </div>
     
@@ -48,6 +53,13 @@
     
     <!-- 此参数必须经过地址栏传到 -->
     #httpServletRequest: <span th:text="${#httpServletRequest.getParameter('name')}"></span>
+    
+    <!-- 字符串为空有默认值 -->
+    <div th:text="${#strings.defaultString(num,89)}"></div>
+    
+    <!--  num为空的时候显示,num要是后台传来的-->
+    <div style="font-style: red;" th:if="${not #strings.isEmpty(num)}">eeeeeeee</div>
+
 </form>
 	
 </body>

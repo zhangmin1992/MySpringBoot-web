@@ -4,6 +4,11 @@ import org.springframework.stereotype.Service;
 
 import com.my.springboot.web.shiro.UserEntity;
 
+/**
+ * 用户登录的账户service
+ * @author yp-tc-m-7129
+ *
+ */
 @Service
 public class UserEntityServiceImpl {
 

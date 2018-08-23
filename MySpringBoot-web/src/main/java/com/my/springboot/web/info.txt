@@ -1,0 +1,8 @@
+errorHandler 全局异常处理，转成自己编写的404页面
+internalProperties 国际化资源文件的地域解析器
+shiro 整合加上shiro，未完成
+tomcat tomcat定制化需求
+ThymeleayController thymelay组件使用
+InternalPropertiesController 国际资源文件使用
+loginIntecepter 登录拦截器实现登录后A请求不再拦截，否则A请求一直拦截，拦截所有请求过滤掉登录请求，登出请求
+

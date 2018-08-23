@@ -69,11 +69,11 @@
             <scope>test</scope>
         </dependency>
         
-        <!-- thymeleaf框架 -->
-        <dependency>
+        <!-- thymeleaf框架,加入这个依赖后之前的jsp跳转不可用 -->
+        <!-- <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
+		</dependency> -->
   </dependencies>
   
 </project>

@@ -28,6 +28,7 @@ public class MyLocalResolver implements LocaleResolver {
 		return locale;
 	}
 
+	//设置默认的地域
 	@Override
 	public void setLocale(HttpServletRequest request,
 			HttpServletResponse response, Locale locale) {

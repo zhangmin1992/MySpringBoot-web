@@ -2,15 +2,9 @@ package com.my.springboot.web;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 
-import javassist.expr.NewArray;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +14,6 @@ import com.my.springboot.web.shiro.UserEntity;
 
 @Controller
 public class InternalPropertiesController {
-
-//	@Autowired
-//	private MessageSource messageSource;
 	
 	 @RequestMapping("/testInteralProperties")
      public String internalProperties(Model model,@RequestParam(value="name") String name){

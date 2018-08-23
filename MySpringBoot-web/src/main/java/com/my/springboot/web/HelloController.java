@@ -28,6 +28,17 @@ public class HelloController {
 	
 	
 	/**
+	 * 测试web环境正常
+	 * @return
+	 */
+	@RequestMapping(value="/test")
+	@ResponseBody
+	public String test() {
+		//counterService.increment("testcount");
+		return "index";
+	}
+	
+	/**
 	 * 测试main启动后jsp页面可以访问
 	 * @param name
 	 * @param pw
@@ -42,16 +53,6 @@ public class HelloController {
 		}
 	}
 	
-	/**
-	 * 测试web环境正常
-	 * @return
-	 */
-	@RequestMapping(value="/test")
-	@ResponseBody
-	public String test() {
-		//counterService.increment("my.test");
-		return "index";
-	}
 	
 	/**
 	 * 登录首页
@@ -74,22 +75,24 @@ public class HelloController {
 	@RequestMapping(value="/userlogin",method=RequestMethod.POST)
     public String userlogin(String username, String password,HttpSession session){
         System.out.println(username+"----"+password);
-        /*if(username.equals("aa") && password.equals("11")) {
+        if(username.equals("aa") && password.equals("11")) {
+        	session.setAttribute("username", username);
         	return "loginSuccess";
         }else {
+        	 session.setAttribute("msg", "用户需先登录");
         	 return "no";
-        }*/
+        }
         
-        Subject subject = SecurityUtils.getSubject();
+        /*Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         try {
             subject.login(token);
         } catch (AuthenticationException e) {
             token.clear();
             return "no";
-        }
+        }*/
         //登录成功后加入缓存
-        return "loginSuccess";
+        //return "loginSuccess";
     }
 	
 	/**
@@ -99,9 +102,9 @@ public class HelloController {
 	 */
 	@RequestMapping("/logOut")
     public String logOut(HttpSession session) {
-        Subject subject = SecurityUtils.getSubject();
-        subject.logout();
-        session.removeAttribute("user");
+       /* Subject subject = SecurityUtils.getSubject();
+        subject.logout();*/
+        session.removeAttribute("username");
         return "login";
     }
 	
@@ -127,10 +130,19 @@ public class HelloController {
         int i = 10 /0;
     }
 	
-	/*@ExceptionHandler(value=IllegalArgumentException.class)
+	@ExceptionHandler(value=IllegalArgumentException.class)
 	public String myError(){
 		return "error";
-	}*/
+	}
+	
+	/**
+	 * 测试登录之后不会再次拦截A请求
+	 * @return
+	 */
+	@RequestMapping(value = "/testLogin")
+    public String testLogin(){
+		return "loginSuccess";
+    }
 	
 	
 }
