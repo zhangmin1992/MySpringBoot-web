@@ -70,10 +70,14 @@
         </dependency>
         
         <!-- thymeleaf框架,加入这个依赖后之前的jsp跳转不可用 -->
-        <!-- <dependency>
+       <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency> -->
+		</dependency>
+       <dependency>
+       	<groupId>org.springframework.boot</groupId>
+       	<artifactId>spring-boot-starter-jta-narayana</artifactId>
+       </dependency>
   </dependencies>
   
 </project>
